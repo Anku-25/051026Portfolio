@@ -1,0 +1,168 @@
+/* ===================================================================
+   RESPONSIVE DESIGN & MOBILE QUERIES (CALM & CUTE THEME)
+   Strict Palette: Dark Red (#85181F), Pure White (#FFFFFF), Yellow (#E5A823), Brown (#261C14)
+   =================================================================== */
+
+@media (max-width: 992px) {
+  .calm-hero-banner {
+    min-height: 70vh;
+    padding: 70px 20px;
+  }
+
+  .banner-portfolio-title {
+    font-size: clamp(4.5rem, 13vw, 8.5rem);
+  }
+
+
+
+  .metrics-banner {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 24px;
+  }
+
+  .metric-item:nth-child(2) {
+    border-right: none;
+  }
+
+  .services-grid,
+  .playbook-grid {
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+
+  .playbook-cta-banner {
+    flex-direction: column;
+    text-align: center;
+    gap: 22px;
+    padding: 32px 24px;
+  }
+
+  .playbook-cta-actions {
+    justify-content: center;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-name {
+    font-size: 1.3rem;
+  }
+
+  .torn-page-dropdown {
+    right: 0;
+    width: 200px;
+  }
+
+  .calm-hero-banner {
+    min-height: 55vh;
+    padding: 60px 16px;
+  }
+
+  .banner-portfolio-title {
+    font-size: clamp(3.4rem, 16vw, 5.5rem);
+    letter-spacing: -1.5px;
+  }
+
+  .ripped-journal-corner {
+    width: 120px;
+    height: 100px;
+  }
+
+  .credentials-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .marketing-doodle {
+    opacity: 0.85;
+  }
+
+  .doodle-funnel,
+  .doodle-search {
+    display: none;
+  }
+
+  .metrics-banner {
+    grid-template-columns: 1fr;
+    padding: 24px 18px;
+  }
+
+  .metric-item {
+    border-right: none;
+    border-bottom: 1.5px dashed rgba(38, 28, 20, 0.2);
+    padding-bottom: 16px;
+  }
+
+  .metric-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card-inner {
+    padding: 26px 18px 20px;
+  }
+
+  .playbook-title-wrap h3 {
+    font-size: 1.25rem;
+  }
+
+  .playbook-cta-banner {
+    padding: 26px 18px;
+  }
+
+  .playbook-cta-actions .btn {
+    width: 100%;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .journal-filter-tabs {
+    gap: 6px;
+    padding: 6px 8px;
+    border-radius: 12px;
+  }
+
+  .journal-tab-btn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    gap: 6px;
+  }
+
+  .work-journal-title {
+    font-size: 2.2rem;
+  }
+
+  .contact-info-card,
+  .contact-form-card {
+    padding: 30px 18px 24px;
+  }
+
+  .form-row-2col {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .info-interactive-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .channel-link-text {
+    font-size: 0.9rem;
+  }
+}

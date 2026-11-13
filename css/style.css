@@ -1,0 +1,2487 @@
+/* ===================================================================
+   DIGITAL MARKETER PORTFOLIO - CLEAR, CALM & CUTE THEME
+   Strict Palette: Dark Red (#85181F), Pure White (#FFFFFF), Yellow (#E5A823), Brown (#261C14)
+   =================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&family=Fredoka:wght@600;700&display=swap');
+
+:root {
+  /* Strict User Color Palette */
+  --color-dark-red: #85181F;      /* Dark Red */
+  --color-dark-red-hover: #6B1117;
+  --color-dark-red-light: #F9EBEB;
+  --color-wine-dark: #62141B;     /* Deep rich paper wine red */
+  --color-wine-deep: #4A0E13;     /* Velvety wine backdrop */
+  
+  --color-white: #FFFFFF;         /* Pure White */
+  --color-yellow: #E5A823;        /* Yellow */
+  --color-yellow-light: #FFF8E6;
+  --color-brown: #261C14;         /* Espresso Brown */
+  
+  --color-kraft: #D4A373;         /* Natural vintage kraft paper tone */
+  --color-muted: #6E5A4E;         /* Secondary warm brown */
+  --bg-main: #FAF8F5;             /* Warm cream paper background */
+  --bg-banner: #FFFFFF;           /* Pure White Canvas for Banner */
+
+  /* Clean Borders & Shadows */
+  --border-clean: 2px solid var(--color-brown);
+  --border-light: 1.5px solid rgba(38, 28, 20, 0.12);
+  --shadow-crisp: 3px 3px 0px var(--color-brown);
+  --shadow-hover: 5px 5px 0px var(--color-brown);
+  --shadow-polaroid: 5px 12px 28px rgba(38, 28, 20, 0.15);
+
+  --font-display: 'Space Grotesk', -apple-system, sans-serif;
+  --font-cute: 'Fredoka', cursive, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-handwriting: 'Caveat', cursive, sans-serif;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 50px;
+  
+  --transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-main);
+  color: var(--color-brown);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+/* ===================================================================
+   INTERACTION & CURSORS (CLEAN NATIVE CURSOR)
+   =================================================================== */
+button, a, .btn, .filter-btn, .carousel-nav-btn, .carousel-dot, .channel-link, .hamburger-btn {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  width: 90%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* ===================================================================
+   HEADER / NAVBAR
+   =================================================================== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(250, 248, 245, 0.98);
+  backdrop-filter: blur(12px);
+  border-bottom: 1.5px solid rgba(38, 28, 20, 0.1);
+  padding: 18px 0;
+}
+
+.navbar .nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.nav-name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-dark-red);
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-name-dot {
+  width: 9px;
+  height: 9px;
+  background: var(--color-yellow);
+  border: 1.5px solid var(--color-brown);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.nav-menu-wrapper {
+  position: relative;
+  display: inline-block;
+  padding: 8px;
+}
+
+.hamburger-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 32px;
+  height: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.2s ease;
+}
+
+.hamburger-btn:hover {
+  transform: scale(1.05);
+}
+
+.hamburger-line {
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-dark-red);
+  border-radius: 4px;
+  transition: var(--transition);
+}
+
+.hamburger-btn:hover .hamburger-line {
+  background-color: var(--color-brown);
+}
+
+.hamburger-btn:hover .hamburger-line:nth-child(2) {
+  background-color: var(--color-yellow);
+}
+
+/* ===================================================================
+   TORN JOURNAL PAGE DROPDOWN MENU
+   =================================================================== */
+.torn-page-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: -5px;
+  width: 220px;
+  background: var(--color-white);
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 10px 30px rgba(38, 28, 20, 0.15), 0 2px 6px rgba(38, 28, 20, 0.08);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px) scale(0.96);
+  transform-origin: top right;
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s;
+  pointer-events: none;
+  z-index: 100;
+  border: 1.5px solid rgba(38, 28, 20, 0.12);
+  border-bottom: none;
+}
+
+.nav-menu-wrapper:hover .torn-page-dropdown,
+.nav-menu-wrapper:focus-within .torn-page-dropdown,
+.nav-menu-wrapper.is-open .torn-page-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.torn-dropdown-tape {
+  position: absolute;
+  top: -10px;
+  right: 40px;
+  width: 65px;
+  height: 18px;
+  background: var(--color-yellow);
+  opacity: 0.85;
+  border: 1px dashed rgba(38, 28, 20, 0.3);
+  transform: rotate(-3deg);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.torn-dropdown-content {
+  padding: 24px 18px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.torn-menu-link {
+  font-family: var(--font-cute);
+  font-size: 1.3rem;
+  color: var(--color-brown);
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: var(--transition);
+  font-weight: 600;
+}
+
+.torn-menu-link:hover,
+.torn-menu-link.active {
+  color: var(--color-dark-red);
+  background: var(--color-yellow-light);
+  transform: translateX(4px);
+}
+
+.torn-menu-link::after {
+  content: '✦';
+  font-size: 0.9rem;
+  color: var(--color-yellow);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.torn-menu-link:hover::after,
+.torn-menu-link.active::after {
+  opacity: 1;
+}
+
+.torn-bottom-edge {
+  width: 100%;
+  height: 24px;
+  display: block;
+  fill: var(--color-white);
+  filter: drop-shadow(0 4px 3px rgba(38, 28, 20, 0.06));
+}
+
+/* ===================================================================
+   HERO BANNER — CINEMATIC LIVING CANVAS
+   =================================================================== */
+
+/* Animated gradient keyframes */
+@keyframes bannerGradientFlow {
+  0%   { background-position: 0% 50%; }
+  33%  { background-position: 100% 20%; }
+  66%  { background-position: 60% 100%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Drifting warm light orb — yellow/honey */
+@keyframes orbDriftA {
+  0%   { transform: translate(-10%, -20%) scale(1); }
+  25%  { transform: translate(55%, -5%) scale(1.12); }
+  50%  { transform: translate(35%, 45%) scale(0.92); }
+  75%  { transform: translate(-8%, 32%) scale(1.06); }
+  100% { transform: translate(-10%, -20%) scale(1); }
+}
+
+/* Drifting wine/dark-red orb */
+@keyframes orbDriftB {
+  0%   { transform: translate(55%, 15%) scale(1); }
+  33%  { transform: translate(-15%, 38%) scale(0.9); }
+  66%  { transform: translate(15%, -18%) scale(1.08); }
+  100% { transform: translate(55%, 15%) scale(1); }
+}
+
+/* Paper grain shimmer */
+@keyframes grainShift {
+  0%   { transform: translate(0, 0); }
+  20%  { transform: translate(-3px, 2px); }
+  40%  { transform: translate(2px, -3px); }
+  60%  { transform: translate(-1px, 3px); }
+  80%  { transform: translate(3px, -1px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Cinematic title entrance */
+@keyframes portfolioReveal {
+  0%   { opacity: 0; transform: scale(0.78) translateY(32px); letter-spacing: 18px; filter: blur(8px); }
+  60%  { opacity: 1; filter: blur(0px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); letter-spacing: -3px; filter: blur(0); }
+}
+
+/* Floating doodle keyframes */
+@keyframes floatDoodleA {
+  0%, 100% { transform: translateY(0px) rotate(-2deg); }
+  50%       { transform: translateY(-16px) rotate(2deg); }
+}
+@keyframes floatDoodleB {
+  0%, 100% { transform: translateY(0px) rotate(4deg); }
+  50%       { transform: translateY(-12px) rotate(-1deg); }
+}
+@keyframes floatDoodleC {
+  0%, 100% { transform: translateY(0px) rotate(-6deg); }
+  50%       { transform: translateY(-18px) rotate(-3deg); }
+}
+@keyframes floatDoodleD {
+  0%, 100% { transform: translateY(0px) rotate(2deg); }
+  50%       { transform: translateY(-10px) rotate(5deg); }
+}
+@keyframes floatDoodleE {
+  0%, 100% { transform: translateY(0px) rotate(-3deg); }
+  50%       { transform: translateY(-14px) rotate(1deg); }
+}
+
+.calm-hero-banner {
+  position: relative;
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 80px 20px;
+  /* Animated warm gradient — shifts between cream, honey-amber, and parchment */
+  background: linear-gradient(
+    120deg,
+    #FFFDF9 0%,
+    #FBF0D6 18%,
+    #FFF5E0 36%,
+    #FAEBD4 52%,
+    #FDF8F0 68%,
+    #F9EDD6 84%,
+    #FFFDF9 100%
+  );
+  background-size: 300% 300%;
+  animation: bannerGradientFlow 12s ease-in-out infinite;
+}
+
+/* Yellow/honey drifting orb */
+.calm-hero-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 560px;
+  height: 560px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(229, 168, 35, 0.22) 0%,
+    rgba(229, 168, 35, 0.08) 40%,
+    transparent 70%
+  );
+  animation: orbDriftA 14s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Dark-red drifting orb */
+.calm-hero-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(133, 24, 31, 0.1) 0%,
+    rgba(133, 24, 31, 0.04) 45%,
+    transparent 70%
+  );
+  animation: orbDriftB 18s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Paper grain noise overlay */
+.banner-grain-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  animation: grainShift 0.5s steps(1) infinite;
+}
+
+.banner-center-box {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  user-select: none;
+}
+
+.banner-portfolio-title {
+  font-family: var(--font-cute);
+  font-size: clamp(5.5rem, 16vw, 13rem);
+  font-weight: 700;
+  color: var(--color-dark-red);
+  line-height: 0.95;
+  letter-spacing: -3px;
+  margin: 0;
+  padding: 0;
+  text-transform: lowercase;
+  /* Sharp letterpress + depth shadow */
+  text-shadow:
+    1px 1px 0 #5C1217,
+    2px 2px 0 #5C1217,
+    3px 3px 0 rgba(92, 18, 23, 0.6),
+    0 8px 32px rgba(133, 24, 31, 0.28),
+    0 2px 4px rgba(133, 24, 31, 0.15);
+  animation: portfolioReveal 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.banner-portfolio-title:hover {
+  transform: scale(1.03);
+  text-shadow:
+    1px 1px 0 #5C1217,
+    3px 3px 0 #5C1217,
+    5px 5px 0 rgba(92, 18, 23, 0.4),
+    0 12px 40px rgba(133, 24, 31, 0.32);
+}
+
+/* Subtitle tagline below the main title */
+.banner-subtitle {
+  font-family: var(--font-handwriting);
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  color: var(--color-brown);
+  opacity: 0;
+  margin-top: 10px;
+  letter-spacing: 1px;
+  animation: portfolioReveal 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+}
+
+/* ===================================================================
+   NATURAL TORN KRAFT & MUSTARD JOURNAL PAPER CORNERS
+   =================================================================== */
+.ripped-journal-corner {
+  position: absolute;
+  pointer-events: none;
+  z-index: 4;
+  filter: drop-shadow(0 6px 14px rgba(38, 28, 20, 0.16));
+}
+
+.ripped-corner-tl {
+  top: 0;
+  left: 0;
+  width: clamp(170px, 22vw, 290px);
+  height: clamp(150px, 20vw, 250px);
+}
+
+.ripped-corner-tr {
+  top: 0;
+  right: 0;
+  width: clamp(170px, 22vw, 290px);
+  height: clamp(150px, 20vw, 250px);
+}
+
+.ripped-corner-bl {
+  bottom: 0;
+  left: 0;
+  width: clamp(170px, 22vw, 290px);
+  height: clamp(150px, 20vw, 250px);
+}
+
+.ripped-corner-br {
+  bottom: 0;
+  right: 0;
+  width: clamp(170px, 22vw, 290px);
+  height: clamp(150px, 20vw, 250px);
+}
+
+/* ===================================================================
+   DIGITAL MARKETING DOODLES — FLOATING ANIMATIONS
+   =================================================================== */
+.marketing-doodle {
+  position: absolute;
+  pointer-events: none;
+  z-index: 6;
+  filter: drop-shadow(1px 2px 4px rgba(38, 28, 20, 0.14));
+}
+
+.doodle-megaphone {
+  top: 14%;
+  left: 12%;
+  width: clamp(48px, 6vw, 68px);
+  animation: floatDoodleA 4.2s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+.doodle-target {
+  top: 14%;
+  right: 13%;
+  width: clamp(52px, 6vw, 72px);
+  animation: floatDoodleB 5.1s ease-in-out infinite;
+  animation-delay: 0.6s;
+}
+
+.doodle-phone {
+  top: 48%;
+  left: 6%;
+  width: clamp(42px, 5vw, 56px);
+  animation: floatDoodleC 4.8s ease-in-out infinite;
+  animation-delay: 1.2s;
+}
+
+.doodle-laptop {
+  top: 46%;
+  right: 6%;
+  width: clamp(56px, 7vw, 76px);
+  animation: floatDoodleD 5.5s ease-in-out infinite;
+  animation-delay: 0.3s;
+}
+
+.doodle-growth-chart {
+  bottom: 12%;
+  left: 14%;
+  width: clamp(52px, 6.5vw, 74px);
+  animation: floatDoodleE 4.5s ease-in-out infinite;
+  animation-delay: 1.8s;
+}
+
+.doodle-lightbulb {
+  bottom: 12%;
+  right: 14%;
+  width: clamp(44px, 5.5vw, 62px);
+  animation: floatDoodleA 5.8s ease-in-out infinite;
+  animation-delay: 0.9s;
+}
+
+.doodle-funnel {
+  top: 8%;
+  right: 32%;
+  width: clamp(38px, 4.5vw, 50px);
+  animation: floatDoodleB 3.9s ease-in-out infinite;
+  animation-delay: 2.1s;
+}
+
+.doodle-search {
+  bottom: 8%;
+  left: 33%;
+  width: clamp(40px, 5vw, 54px);
+  animation: floatDoodleC 4.6s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+/* ===================================================================
+   TORN PAPER TRANSITION (HERO BANNER TO JOURNAL SECTION)
+   =================================================================== */
+.torn-paper-edge-top {
+  width: 100%;
+  height: 28px;
+  overflow: hidden;
+  line-height: 0;
+  position: relative;
+  z-index: 5;
+  background: var(--color-white);
+}
+
+.torn-paper-edge-top svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  fill: #FAF6F0;
+  filter: drop-shadow(0 -3px 3px rgba(38, 28, 20, 0.12));
+}
+
+/* ===================================================================
+   SECTION 2: EDITORIAL JOURNAL PROFILE SPREAD
+   (Exact Layout & Aesthetics from Reference Screenshot)
+   =================================================================== */
+.journal-profile-section {
+  background-color: #FAF6F0;
+  background-image: 
+    radial-gradient(rgba(38, 28, 20, 0.035) 1px, transparent 1px),
+    linear-gradient(rgba(38, 28, 20, 0.015) 1px, transparent 1px);
+  background-size: 20px 20px, 100% 32px;
+  padding: 40px 0 70px;
+  position: relative;
+}
+
+.journal-profile-container {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 52px;
+  align-items: start;
+}
+
+/* ===================================================================
+   LEFT COLUMN: POLAROID WITH BLACK BINDER CLIP + CONTACT LINKS
+   =================================================================== */
+.journal-left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.journal-polaroid-frame {
+  position: relative;
+  background: var(--color-white);
+  padding: 18px 18px 24px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid rgba(38, 28, 20, 0.2);
+  box-shadow: 0 12px 30px rgba(38, 28, 20, 0.14), 0 2px 6px rgba(38, 28, 20, 0.08);
+  transform: rotate(-1.6deg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 14px;
+}
+
+.journal-polaroid-frame:hover {
+  transform: rotate(0deg) translateY(-4px);
+  box-shadow: 0 18px 38px rgba(38, 28, 20, 0.18);
+}
+
+/* Black Metal Bulldog / Foldback Binder Clip */
+.black-binder-clip {
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  filter: drop-shadow(0 4px 5px rgba(38, 28, 20, 0.35));
+  pointer-events: none;
+}
+
+.polaroid-photo-wrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1.16;
+  background: #EFE8DD;
+  border: 1.5px solid rgba(38, 28, 20, 0.14);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dummy-portrait-svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Real Photo in Polaroid Frame */
+.polaroid-real-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: contrast(1.04) saturate(1.05) brightness(1.02);
+  transition: transform 0.4s ease;
+}
+
+.journal-polaroid-frame:hover .polaroid-real-photo {
+  transform: scale(1.03);
+}
+
+.polaroid-caption-small {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.photo-hint-tag {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--color-brown);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+
+
+/* ===================================================================
+   RIGHT COLUMN: BIG TITLE + 2-COLUMN EDITORIAL DETAILS
+   =================================================================== */
+.journal-right-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Bold Display Headline: HELLO! I AM ANKITA! */
+.journal-main-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 5.2vw, 4.3rem);
+  font-weight: 900;
+  color: var(--color-dark-red);
+  text-transform: uppercase;
+  letter-spacing: -1.2px;
+  line-height: 1.04;
+  margin: 0 0 32px 0;
+}
+
+/* 2-Column Split: Meta & Tools (Left) + Work Experience (Right) */
+.journal-columns-wrapper {
+  display: grid;
+  grid-template-columns: 270px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* Sub-Column 1: Tools, Focus, Education */
+.journal-subcol-left {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.journal-group-title {
+  font-family: var(--font-display);
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: var(--color-brown);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin: 0 0 14px 0;
+}
+
+/* Core Tools Pill Badges (Dark Red with White Text as in SS) */
+.tools-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tool-tag-pill {
+  background: var(--color-dark-red);
+  color: var(--color-white);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 1.5px 2px 0px rgba(38, 28, 20, 0.25);
+  transition: transform 0.2s ease, background 0.2s ease;
+  user-select: none;
+}
+
+.tool-tag-pill:hover {
+  background: var(--color-dark-red-hover);
+  transform: translateY(-2px);
+}
+
+/* Featured Highlighted Pill (WordPress Prominence) */
+.tool-tag-pill.pill-featured-wordpress {
+  background: var(--color-yellow);
+  color: var(--color-brown);
+  border: 1.5px solid var(--color-brown);
+  box-shadow: 2px 2.5px 0px var(--color-brown);
+  font-weight: 900;
+  font-size: 0.9rem;
+  padding: 6px 16px;
+  letter-spacing: 0.2px;
+}
+
+.tool-tag-pill.pill-featured-wordpress:hover {
+  background: #EBB63E;
+  transform: translateY(-2px);
+}
+
+/* Languages Badge Row (Replacing Core Focus) */
+.languages-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.lang-tag-pill {
+  background: var(--color-white);
+  color: var(--color-brown);
+  border: 1.5px solid rgba(38, 28, 20, 0.2);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  box-shadow: 1px 1.5px 0px rgba(38, 28, 20, 0.12);
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  user-select: none;
+}
+
+.lang-tag-pill:hover {
+  border-color: var(--color-dark-red);
+  color: var(--color-dark-red);
+}
+
+/* Tabular Education Entry */
+.edu-tabular-entry {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  padding-bottom: 6px;
+  border-bottom: 1px dashed rgba(38, 28, 20, 0.14);
+}
+
+.edu-date-col {
+  display: flex;
+  flex-direction: column;
+  width: 50px;
+  flex-shrink: 0;
+}
+
+.edu-date-col strong {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--color-brown);
+}
+
+.edu-date-col span {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--color-muted);
+}
+
+.edu-text-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.edu-text-col strong {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--color-brown);
+  line-height: 1.3;
+}
+
+.edu-text-col span {
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  font-weight: 600;
+}
+
+/* Quick Action Buttons */
+.journal-subcol-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.journal-subcol-actions .btn {
+  width: 100%;
+  padding: 10px 18px;
+  font-size: 0.92rem;
+}
+
+/* ===================================================================
+   SUB-COLUMN 2: WORK EXPERIENCE (TABULAR EDITORIAL LIST)
+   =================================================================== */
+.journal-subcol-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.journal-exp-table {
+  display: flex;
+  flex-direction: column;
+}
+
+.exp-table-row {
+  display: grid;
+  grid-template-columns: 145px 1fr;
+  gap: 20px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(38, 28, 20, 0.18);
+  align-items: start;
+}
+
+.exp-table-row:first-child {
+  padding-top: 0;
+}
+
+.exp-table-row:last-child {
+  border-bottom: none;
+}
+
+.exp-table-left {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.exp-role-name {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--color-brown);
+  line-height: 1.35;
+}
+
+.exp-role-dates {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-muted);
+}
+
+.exp-status-pill {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--color-dark-red);
+  background: #F9EBEB;
+  border: 1px solid rgba(133, 24, 31, 0.2);
+  padding: 1px 7px;
+  border-radius: var(--radius-pill);
+  width: fit-content;
+  margin-top: 4px;
+}
+
+.exp-table-right {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.exp-firm-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-dark-red);
+  margin: 0;
+  line-height: 1.25;
+}
+
+.exp-points-summary {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.exp-points-summary strong {
+  color: var(--color-brown);
+}
+
+/* Responsive Editorial Layout */
+@media (max-width: 1024px) {
+  .journal-profile-container {
+    grid-template-columns: 320px 1fr;
+    gap: 36px;
+  }
+  .journal-columns-wrapper {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .journal-profile-container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .journal-left-column {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .journal-main-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .exp-table-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 14px 0;
+  }
+}
+
+/* ===================================================================
+   BUTTONS
+   =================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 28px;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: var(--transition);
+  border: var(--border-clean);
+}
+
+.btn-primary {
+  background: var(--color-dark-red);
+  color: var(--color-white);
+  box-shadow: var(--shadow-crisp);
+  border-color: var(--color-brown);
+}
+
+.btn-primary:hover {
+  background: var(--color-dark-red-hover);
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px var(--color-brown);
+}
+
+.btn-secondary {
+  background: var(--color-white);
+  color: var(--color-brown);
+  box-shadow: var(--shadow-crisp);
+}
+
+.btn-secondary:hover {
+  background: var(--color-yellow-light);
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px var(--color-brown);
+}
+
+/* ===================================================================
+   METRICS BANNER
+   =================================================================== */
+.metrics-banner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  background: var(--color-white);
+  border: var(--border-clean);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-crisp);
+  padding: 32px 24px;
+  margin-top: 40px;
+}
+
+.metric-item {
+  text-align: center;
+  border-right: 1.5px dashed rgba(38, 28, 20, 0.2);
+}
+
+.metric-item:last-child {
+  border-right: none;
+}
+
+.metric-number {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: var(--color-dark-red);
+  display: block;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.metric-label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-muted);
+}
+
+
+/* ===================================================================
+   TORN PAPER SECTION DIVIDERS (REALISTIC RIPPED DECKLE TRANSITION)
+   =================================================================== */
+.torn-paper-transition {
+  width: 100%;
+  height: 32px;
+  overflow: hidden;
+  line-height: 0;
+  position: relative;
+  z-index: 6;
+}
+
+.torn-to-wine {
+  background: #FAF6F0;
+}
+
+.torn-to-wine svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  fill: #5C1217;
+  filter: drop-shadow(0 -3px 4px rgba(38, 28, 20, 0.22));
+}
+
+.torn-from-wine {
+  background: #5C1217;
+}
+
+.torn-from-wine svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  fill: #FAF8F5;
+  filter: drop-shadow(0 -3px 4px rgba(38, 28, 20, 0.22));
+}
+
+/* ===================================================================
+   SECTION HEADERS
+   =================================================================== */
+.section {
+  padding: 60px 0 80px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-badge {
+  display: inline-block;
+  background: var(--color-yellow-light);
+  color: var(--color-brown);
+  border: 1.5px solid var(--color-yellow);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 4px 14px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 12px;
+}
+
+.section-header h2 {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 10px;
+}
+
+.section-header p {
+  color: var(--color-muted);
+  font-size: 1.1rem;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+/* ===================================================================
+   SECTION 3: THE GROWTH PLAYBOOK - DARK WINE JOURNAL CAROUSEL
+   (Inspired by tactile stationery scorecards & wine-red journal spread)
+   =================================================================== */
+.playbook-section.journal-theme-dark {
+  background-color: #5C1217;
+  background-image: 
+    radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    radial-gradient(rgba(0, 0, 0, 0.12) 1px, transparent 1px);
+  background-size: 24px 24px, 12px 12px;
+  padding: 56px 0 74px;
+  position: relative;
+  color: var(--color-white);
+}
+
+.playbook-header-journal {
+  margin-bottom: 30px;
+}
+
+.badge-journal-yellow {
+  background: var(--color-yellow) !important;
+  color: var(--color-brown) !important;
+  border-color: var(--color-brown) !important;
+  box-shadow: 2px 2px 0px var(--color-brown);
+}
+
+.playbook-journal-title {
+  color: var(--color-white) !important;
+  font-size: clamp(2.1rem, 4vw, 2.9rem) !important;
+}
+
+.highlight-yellow {
+  color: var(--color-yellow);
+}
+
+.playbook-journal-sub {
+  color: rgba(255, 255, 255, 0.85) !important;
+  max-width: 600px;
+  margin: 0 auto 8px !important;
+}
+
+/* Handwritten Cursive Accent */
+.journal-handwritten-callout {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-handwriting);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-yellow);
+  margin-top: 6px;
+  transform: rotate(-1deg);
+}
+
+.handwrite-arrow {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+/* ===================================================================
+   PLAYBOOK CAROUSEL ARCHITECTURE
+   =================================================================== */
+.playbook-carousel-container {
+  position: relative;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.carousel-controls-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding: 0 4px;
+}
+
+.carousel-counter {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.counter-current {
+  color: var(--color-yellow);
+  font-size: 1.35rem;
+}
+
+.counter-sep {
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0 2px;
+}
+
+.counter-total {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.carousel-nav-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.carousel-nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-white);
+  border: 2px solid var(--color-brown);
+  color: var(--color-brown);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 2px 3px 0px var(--color-brown);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.carousel-nav-btn:hover {
+  background: var(--color-yellow);
+  transform: translate(1px, 1px);
+  box-shadow: 1px 2px 0px var(--color-brown);
+}
+
+.carousel-nav-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+.carousel-nav-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 2px 2px 0px var(--color-brown);
+}
+
+/* Track Wrapper: Horizontal Scroll Snap */
+.playbook-carousel-track-wrapper {
+  overflow-x: auto;
+  overflow-y: visible;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 22px 6px 16px;
+  margin: 0 -6px;
+}
+
+.playbook-carousel-track-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.playbook-carousel-track {
+  display: flex;
+  gap: 26px;
+  width: max-content;
+}
+
+/* Base Carousel Card */
+.playbook-card {
+  position: relative;
+  width: clamp(340px, 44vw, 520px);
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  border-radius: var(--radius-md);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.playbook-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Card Tabs */
+.card-tab {
+  position: absolute;
+  top: -16px;
+  left: 28px;
+  padding: 4px 18px;
+  border: 1.5px solid var(--color-brown);
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 2px -1px 0px rgba(38, 28, 20, 0.2);
+  z-index: 2;
+}
+
+.card-tab .tab-label {
+  font-family: var(--font-cute);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  display: block;
+}
+
+.card-tab-red .card-tab {
+  background: var(--color-dark-red);
+  color: var(--color-white);
+}
+
+.card-tab-yellow .card-tab {
+  background: var(--color-yellow);
+  color: var(--color-brown);
+}
+
+.card-tab-kraft .card-tab {
+  background: #D4A373;
+  color: var(--color-brown);
+}
+
+.card-inner {
+  padding: 30px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.playbook-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+
+.playbook-icon-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--bg-main);
+  border: 1.5px solid var(--color-brown);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.45rem;
+  flex-shrink: 0;
+  box-shadow: 2px 2px 0px var(--color-brown);
+}
+
+.playbook-title-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.playbook-category {
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 2px;
+}
+
+.playbook-title-wrap h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 0;
+}
+
+/* Scorecard Divider Ruler */
+.playbook-scorecard-ruler {
+  width: 100%;
+  height: 1px;
+  border-bottom: 1.5px dashed rgba(38, 28, 20, 0.16);
+  margin: 8px 0 14px;
+}
+
+/* ===================================================================
+   CARD THEME 1: CREAM SCORECARD STYLE (Light Stationery Paper)
+   =================================================================== */
+.card-journal-cream {
+  background: #FAF8F5;
+  border: 2px solid var(--color-brown);
+  color: var(--color-brown);
+  box-shadow: 5px 6px 0px var(--color-brown);
+}
+
+.card-journal-cream .playbook-category {
+  color: var(--color-dark-red);
+}
+
+.card-journal-cream .playbook-title-wrap h3 {
+  color: var(--color-brown);
+}
+
+.card-journal-cream .playbook-deliverables {
+  background: #FFFFFF;
+  border: 1.5px dashed rgba(38, 28, 20, 0.22);
+  border-radius: var(--radius-sm);
+  padding: 16px 18px;
+  margin-bottom: 18px;
+  margin-top: auto;
+}
+
+.card-journal-cream .playbook-deliverables h4 {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--color-brown);
+  margin-bottom: 10px;
+}
+
+.card-journal-cream .playbook-deliverables li {
+  font-size: 0.88rem;
+  color: var(--color-brown);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.45;
+  margin-bottom: 8px;
+}
+
+.card-journal-cream .check-icon {
+  color: var(--color-dark-red);
+  font-weight: 900;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+  line-height: 1.3;
+}
+
+.card-journal-cream .impact-badge {
+  background: var(--color-yellow-light);
+  color: var(--color-brown);
+  border: 1.5px solid var(--color-yellow);
+  box-shadow: 1.5px 1.5px 0px var(--color-brown);
+}
+
+/* ===================================================================
+   CARD THEME 2: DEEP WINE STYLE (Velvety Red Moodboard Card)
+   =================================================================== */
+.card-journal-wine {
+  background: #470D13;
+  border: 2px solid rgba(229, 168, 35, 0.85);
+  color: var(--color-white);
+  box-shadow: 5px 6px 0px #1E0507;
+}
+
+.card-journal-wine .card-tab {
+  border-color: rgba(229, 168, 35, 0.85);
+}
+
+.card-journal-wine .playbook-icon-badge {
+  background: #5C1217;
+  border-color: var(--color-yellow);
+}
+
+.card-journal-wine .playbook-category {
+  color: var(--color-yellow);
+}
+
+.card-journal-wine .playbook-title-wrap h3 {
+  color: var(--color-white);
+}
+
+.card-journal-wine .playbook-scorecard-ruler {
+  border-bottom-color: rgba(255, 255, 255, 0.18);
+}
+
+.card-journal-wine .playbook-deliverables {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1.5px dashed rgba(229, 168, 35, 0.45);
+  border-radius: var(--radius-sm);
+  padding: 16px 18px;
+  margin-bottom: 18px;
+  margin-top: auto;
+}
+
+.card-journal-wine .playbook-deliverables h4 {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--color-yellow);
+  margin-bottom: 10px;
+}
+
+.card-journal-wine .playbook-deliverables li {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.92);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.45;
+  margin-bottom: 8px;
+}
+
+.card-journal-wine .check-icon {
+  color: var(--color-yellow);
+  font-weight: 900;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+  line-height: 1.3;
+}
+
+.card-journal-wine .impact-badge {
+  background: var(--color-yellow);
+  color: var(--color-brown);
+  border: 1.5px solid var(--color-brown);
+  box-shadow: 1.5px 1.5px 0px rgba(0, 0, 0, 0.4);
+}
+
+/* Card Footer */
+.playbook-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 4px;
+}
+
+.impact-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+/* Carousel Pagination Dots */
+.carousel-dots-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: 1.5px solid var(--color-white);
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.carousel-dot:hover {
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(1.15);
+}
+
+.carousel-dot.active {
+  width: 32px;
+  border-radius: 12px;
+  background: var(--color-yellow);
+  border-color: var(--color-yellow);
+  box-shadow: 0 0 10px rgba(229, 168, 35, 0.4);
+}
+
+/* Tactile Scrapbook CTA Banner Inside Dark Journal */
+.journal-cta-banner {
+  background: #FAF8F5 !important;
+  border: 2px solid var(--color-brown) !important;
+  border-radius: var(--radius-lg);
+  box-shadow: 5px 6px 0px var(--color-brown) !important;
+  padding: 34px 40px !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  position: relative;
+  margin-top: 20px;
+}
+
+.journal-cta-banner .playbook-cta-text h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-brown);
+  margin-bottom: 6px;
+}
+
+.journal-cta-banner .playbook-cta-text p {
+  font-size: 0.98rem;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+.playbook-cta-actions {
+  display: flex;
+  gap: 14px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.btn-yellow-contrast {
+  background: var(--color-dark-red) !important;
+  color: var(--color-white) !important;
+  border-color: var(--color-brown) !important;
+}
+
+@media (max-width: 768px) {
+  .playbook-card {
+    width: calc(100vw - 56px);
+  }
+  .journal-cta-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 26px 22px !important;
+    gap: 20px;
+  }
+  .playbook-cta-actions {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+/* ===================================================================
+   WORK SECTION - AUTHENTIC EDITORIAL JOURNAL / DOSSIER THEME
+   =================================================================== */
+.work-journal-hero {
+  background-color: #FAF6F0;
+  background-image: 
+    radial-gradient(rgba(38, 28, 20, 0.035) 1px, transparent 1px),
+    linear-gradient(rgba(38, 28, 20, 0.015) 1px, transparent 1px);
+  background-size: 20px 20px, 100% 32px;
+  padding: 56px 0 24px;
+  position: relative;
+}
+
+.work-header-wrap {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.work-journal-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.3rem, 5.2vw, 3.6rem);
+  font-weight: 900;
+  color: var(--color-dark-red);
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  line-height: 1.08;
+  margin: 12px 0 10px;
+}
+
+.work-journal-sub {
+  font-size: 1.05rem;
+  color: var(--color-muted);
+  font-weight: 500;
+  max-width: 650px;
+  margin: 0 auto 14px;
+  line-height: 1.55;
+}
+
+.work-handwritten-guide {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-handwriting);
+  font-size: 1.35rem;
+  color: var(--color-dark-red);
+  font-weight: 700;
+  margin-bottom: 22px;
+}
+
+/* TACTILE JOURNAL FILTER TABS (INDEX TAB BOOKMARK DESIGN) */
+.journal-filter-bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 10;
+}
+
+.journal-filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: rgba(38, 28, 20, 0.04);
+  border: 1.5px solid rgba(38, 28, 20, 0.12);
+  border-radius: 16px;
+}
+
+.journal-tab-btn {
+  background: var(--color-white);
+  border: 1.5px solid var(--color-brown);
+  color: var(--color-brown);
+  padding: 8px 18px;
+  border-radius: 10px;
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 2px 2px 0px var(--color-brown);
+  user-select: none;
+  position: relative;
+}
+
+.journal-tab-btn .tab-index {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--color-muted);
+  background: #F4EFEB;
+  padding: 1px 6px;
+  border-radius: 4px;
+  border: 1px solid rgba(38, 28, 20, 0.12);
+}
+
+.journal-tab-btn:hover {
+  background: var(--color-yellow-light);
+  transform: translateY(-2px);
+  box-shadow: 2px 4px 0px var(--color-brown);
+}
+
+.journal-tab-btn.active {
+  background: var(--color-dark-red);
+  color: var(--color-white);
+  border-color: var(--color-brown);
+  box-shadow: 1px 2px 0px var(--color-brown);
+  transform: translateY(-2px);
+}
+
+.journal-tab-btn.active .tab-index {
+  background: var(--color-yellow);
+  color: var(--color-brown);
+  border-color: var(--color-brown);
+}
+
+/* PROJECTS GRID & DOSSIER CARDS */
+.work-grid-section {
+  padding: 50px 0 90px;
+  background: #FAF8F5;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.journal-work-card {
+  background: var(--color-white);
+  border: 2px solid var(--color-brown);
+  border-radius: var(--radius-md);
+  box-shadow: 4px 5px 0px var(--color-brown);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  overflow: hidden;
+}
+
+.journal-work-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 6px 8px 0px var(--color-brown);
+}
+
+/* Washi Tape Accent at Top of Card */
+.card-washi-tape {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 14px;
+  background: rgba(229, 168, 35, 0.55);
+  border-bottom: 1px dashed rgba(38, 28, 20, 0.2);
+  z-index: 5;
+  clip-path: polygon(0 0, 100% 0, 96% 100%, 4% 100%);
+}
+
+.tape-kraft {
+  background: rgba(212, 163, 115, 0.55);
+}
+
+.tape-red {
+  background: rgba(133, 24, 31, 0.35);
+}
+
+.journal-card-top {
+  padding: 24px 22px 14px;
+  border-bottom: 1.5px dashed rgba(38, 28, 20, 0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-category-pill {
+  font-family: var(--font-display);
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-white);
+  background: var(--color-dark-red);
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.3px;
+}
+
+.card-category-pill.pill-yellow {
+  background: var(--color-yellow);
+  color: var(--color-brown);
+  border: 1px solid var(--color-brown);
+}
+
+.card-entry-stamp {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--color-muted);
+  letter-spacing: 0.5px;
+}
+
+.journal-card-body {
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.journal-card-body h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-brown);
+  line-height: 1.3;
+  margin: 0 0 10px 0;
+}
+
+.card-short-desc {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  line-height: 1.5;
+  margin: 0 0 16px 0;
+  flex-grow: 1;
+}
+
+/* Micro highlight tags (Compact, scannable) */
+.card-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.card-micro-tag {
+  font-size: 0.74rem;
+  font-weight: 800;
+  background: #FAF6F0;
+  color: var(--color-brown);
+  border: 1px solid rgba(38, 28, 20, 0.15);
+  padding: 3px 9px;
+  border-radius: 6px;
+}
+
+/* Action Links Area */
+.card-actions-area {
+  display: flex;
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1.5px dashed rgba(38, 28, 20, 0.15);
+  margin-top: auto;
+}
+
+.journal-link-btn {
+  flex: 1;
+  text-align: center;
+  font-size: 0.86rem;
+  font-weight: 800;
+  padding: 8px 12px;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.link-btn-primary {
+  background: var(--color-dark-red);
+  color: var(--color-white);
+  border: 1.5px solid var(--color-brown);
+  box-shadow: 2px 2px 0px var(--color-brown);
+}
+
+.link-btn-primary:hover {
+  background: var(--color-dark-red-hover);
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px var(--color-brown);
+}
+
+.link-btn-secondary {
+  background: var(--color-white);
+  color: var(--color-brown);
+  border: 1.5px solid rgba(38, 28, 20, 0.25);
+  box-shadow: 1.5px 1.5px 0px rgba(38, 28, 20, 0.15);
+}
+
+.link-btn-secondary:hover {
+  background: var(--color-yellow-light);
+  border-color: var(--color-brown);
+}
+
+/* ===================================================================
+   CONTACT SECTION
+   =================================================================== */
+/* ===================================================================
+   CONTACT SECTION (TACTILE JOURNAL DOSSIER & AIR MAIL AESTHETIC)
+   =================================================================== */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 36px;
+  align-items: start;
+}
+
+.contact-info-card,
+.contact-form-card {
+  position: relative;
+  background: var(--color-white);
+  border: var(--border-clean);
+  border-radius: var(--radius-lg);
+  box-shadow: 4px 4px 0px var(--color-brown);
+  padding: 40px 32px 32px;
+}
+
+/* Washi Tape Strip at the Top Center of Cards */
+.contact-info-card .card-washi-tape,
+.contact-form-card .card-washi-tape {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  height: 26px;
+  border-radius: 2px;
+  box-shadow: 0 2px 6px rgba(38, 28, 20, 0.15);
+  z-index: 5;
+  opacity: 0.94;
+}
+
+.contact-info-card .card-washi-tape.tape-gold {
+  background: rgba(229, 168, 35, 0.9);
+  clip-path: polygon(0% 2%, 96% 0%, 100% 98%, 4% 96%);
+  border-top: 1px dashed rgba(255, 255, 255, 0.6);
+}
+
+.contact-form-card .card-washi-tape.tape-wine {
+  background: rgba(133, 24, 31, 0.88);
+  clip-path: polygon(4% 0%, 100% 3%, 96% 97%, 0% 98%);
+  border-top: 1px dashed rgba(255, 255, 255, 0.45);
+}
+
+/* Card Headers & Kickers */
+.contact-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.contact-card-kicker {
+  display: inline-block;
+  font-family: var(--font-handwriting);
+  font-size: 1.25rem;
+  color: var(--color-dark-red);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 2px;
+}
+
+.contact-info-card h3,
+.contact-form-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--color-brown);
+  margin-bottom: 6px;
+  letter-spacing: -0.3px;
+}
+
+.contact-card-subtext,
+.form-card-header p {
+  color: var(--color-muted);
+  font-size: 0.96rem;
+  line-height: 1.55;
+  margin-bottom: 24px;
+}
+
+/* Vintage Postage / Air Mail Stamp Badge */
+.postal-stamp-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+  border: 1.5px dashed var(--color-dark-red);
+  border-radius: 4px;
+  background: var(--color-yellow-light);
+  transform: rotate(3deg);
+  box-shadow: 1px 1px 0px rgba(133, 24, 31, 0.3);
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.postal-stamp-badge span {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--color-dark-red);
+}
+
+.postal-stamp-badge strong {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: var(--color-brown);
+  line-height: 1;
+}
+
+/* Info Items List */
+.info-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  border: 1.5px solid rgba(38, 28, 20, 0.12);
+  border-radius: 14px;
+  background: #FCFAF7;
+  transition: var(--transition);
+}
+
+.info-item-interactive:hover {
+  border-color: var(--color-brown);
+  background: #FFFDF9;
+  transform: translateY(-2px);
+  box-shadow: 3px 3px 0px var(--color-brown);
+}
+
+.info-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--color-yellow-light);
+  border: 2px solid var(--color-brown);
+  color: var(--color-dark-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 2px 2px 0px var(--color-brown);
+  transition: transform 0.25s ease;
+}
+
+.info-item:hover .info-icon {
+  transform: rotate(-4deg) scale(1.04);
+}
+
+.info-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.info-label {
+  display: block;
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--color-muted);
+  margin-bottom: 2px;
+}
+
+.info-interactive-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.channel-link-text {
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: var(--color-brown);
+  transition: color 0.2s ease;
+  word-break: break-all;
+}
+
+.channel-link-text:hover {
+  color: var(--color-dark-red);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ext-arrow {
+  display: inline-block;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--color-dark-red);
+  margin-left: 2px;
+  transition: transform 0.2s ease;
+}
+
+.channel-link-text:hover .ext-arrow {
+  transform: translate(2px, -2px);
+}
+
+/* Copy Email Button */
+.copy-email-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1.5px solid var(--color-brown);
+  background: var(--color-white);
+  color: var(--color-brown);
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 1.5px 1.5px 0px var(--color-brown);
+  transition: var(--transition);
+  user-select: none;
+}
+
+.copy-email-btn:hover {
+  background: var(--color-yellow);
+  transform: translateY(-1px);
+}
+
+.copy-email-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 0 0;
+}
+
+.copy-email-btn.is-copied {
+  background: #2E7D32;
+  color: #FFFFFF;
+  border-color: #2E7D32;
+  box-shadow: 1.5px 1.5px 0px #1B5E20;
+}
+
+/* Static Value for Location */
+.info-value-static {
+  display: block;
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--color-brown);
+}
+
+.info-sub-badge {
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--color-muted);
+  background: var(--color-yellow-light);
+  border: 1px dashed rgba(229, 168, 35, 0.85);
+  border-radius: 4px;
+  padding: 2px 7px;
+}
+
+/* Status Indicator Strip */
+.contact-status-strip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  padding: 13px 16px;
+  background: #F3F8F4;
+  border: 1.5px dashed #2E7D32;
+  border-radius: 12px;
+}
+
+.status-indicator-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #2E7D32;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.7);
+  animation: statusPulse 2s infinite;
+}
+
+@keyframes statusPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 7px rgba(46, 125, 50, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(46, 125, 50, 0);
+  }
+}
+
+.status-indicator-info strong {
+  display: block;
+  font-size: 0.86rem;
+  color: #1B5E20;
+  font-weight: 700;
+}
+
+.status-indicator-info span {
+  display: block;
+  font-size: 0.76rem;
+  color: #388E3C;
+  line-height: 1.3;
+}
+
+/* Contact Form Styling */
+.form-row-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin-bottom: 7px;
+  color: var(--color-brown);
+}
+
+.required-star {
+  color: var(--color-dark-red);
+  font-weight: 700;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 15px;
+  background: #FAF8F5;
+  border: var(--border-clean);
+  border-radius: var(--radius-sm);
+  color: var(--color-brown);
+  font-family: var(--font-body);
+  font-size: 0.94rem;
+  transition: var(--transition);
+}
+
+.form-control:focus {
+  outline: none;
+  background: var(--color-white);
+  border-color: var(--color-dark-red);
+  box-shadow: 2.5px 2.5px 0px var(--color-dark-red);
+}
+
+/* Email Verification & Live Feedback */
+.input-with-status {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.input-with-status .form-control {
+  padding-right: 40px;
+}
+
+.email-status-icon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.95rem;
+  font-weight: 800;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.form-control.is-invalid {
+  border-color: #D32F2F !important;
+  box-shadow: 2.5px 2.5px 0px #D32F2F !important;
+  background-color: #FFF8F8 !important;
+}
+
+.form-control.is-valid {
+  border-color: #2E7D32 !important;
+  box-shadow: 2.5px 2.5px 0px #2E7D32 !important;
+  background-color: #F4FAF5 !important;
+}
+
+.email-validation-msg {
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin-top: 5px;
+  min-height: 18px;
+  line-height: 1.35;
+  transition: all 0.2s ease;
+}
+
+.email-validation-msg.error-msg {
+  color: #D32F2F;
+}
+
+.email-validation-msg.success-msg {
+  color: #2E7D32;
+}
+
+@keyframes shakeInput {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+.shake-animation {
+  animation: shakeInput 0.35s ease-in-out;
+}
+
+.form-select {
+  cursor: pointer;
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.contact-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  border-radius: 10px;
+  letter-spacing: 0.2px;
+}
+
+.contact-submit-btn .submit-arrow {
+  transition: transform 0.2s ease;
+}
+
+.contact-submit-btn:hover .submit-arrow {
+  transform: translateX(4px);
+}
+
+/* Form Success Banner */
+.form-success-banner {
+  margin-top: 18px;
+  padding: 16px 18px;
+  border: 2px solid #2E7D32;
+  border-radius: 12px;
+  background: #F3F8F4;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  box-shadow: 3px 3px 0px #2E7D32;
+  animation: fadeInBanner 0.35s ease;
+}
+
+@keyframes fadeInBanner {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-success-banner .success-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #2E7D32;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.form-success-banner .success-text strong {
+  display: block;
+  font-size: 0.95rem;
+  color: #1B5E20;
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+
+.form-success-banner .success-text p {
+  font-size: 0.85rem;
+  color: #2E7D32;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ===================================================================
+   FOOTER
+   =================================================================== */
+.footer {
+  margin-top: auto;
+  border-top: var(--border-clean);
+  background: var(--color-white);
+  padding: 28px 0;
+  text-align: center;
+  color: var(--color-muted);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.footer strong {
+  color: var(--color-dark-red);
+}
